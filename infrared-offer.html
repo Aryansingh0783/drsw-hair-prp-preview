@@ -467,12 +467,15 @@
 
     .lp .lp-package-orbit__label {
       display: block;
-      margin-top: 0.5rem;
+      max-width: 4.4rem;
+      margin: 0.4rem auto 0;
       color: var(--stone-700);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
       text-transform: uppercase;
+      overflow-wrap: anywhere;
     }
 
     .lp .lp-orbit-tag {
@@ -1161,6 +1164,7 @@
       }
 
       .lp .lp-package-orbit__label {
+        max-width: 7rem;
         font-size: 0.7rem;
         letter-spacing: 0.1em;
       }
