@@ -1853,6 +1853,124 @@
     .lp .lp-hero__media img {
       object-position: 60% 45%;
     }
+
+    /* Restraint pass, 4 September 2026: fewer ornaments, plainer labels, squarer corners, no orbit */
+    .lp {
+      --radius-section: 0px;
+      --radius-lg: 1rem;
+      --radius: 0.85rem;
+    }
+
+    .lp .lp-hero {
+      border-radius: 0;
+      background: var(--follicle-950);
+    }
+
+    .lp .lp-section--deep,
+    .lp .lp-section--deep:has(+ .lp-section:not(.lp-section--deep)) {
+      border-radius: 0;
+    }
+
+    .lp .lp-eyebrow {
+      gap: 0;
+      color: var(--infrared-600);
+      font-family: var(--ff-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .lp .lp-eyebrow::before {
+      display: none;
+    }
+
+    .lp .lp-section--deep .lp-eyebrow {
+      color: var(--infrared-300);
+    }
+
+    .lp .lp-brand__context {
+      font-family: var(--ff-display);
+      font-size: 0.82rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+    }
+
+    .lp .lp-hero__copy h1 {
+      font-size: clamp(2.1rem, 1.35rem + 2.6vw, 3.9rem);
+    }
+
+    .lp .lp-hero__media {
+      border-radius: var(--radius-lg);
+    }
+
+    .lp .lp-hero__media::after,
+    .lp .lp-hero__media figcaption {
+      display: none;
+    }
+
+    .lp .lp-figure {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .lp .lp-figure figcaption {
+      padding: 0.6rem 0 0;
+      color: var(--stone-700);
+      background: transparent;
+      font-family: var(--ff-display);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .lp .lp-proof-card__data,
+    .lp .lp-includes__total strong,
+    .lp .lp-form-price strong {
+      font-family: var(--ff-display);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+    }
+
+    .lp .lp-includes__value {
+      font-family: var(--ff-display);
+      font-size: 0.86rem;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .lp .lp-treatment-card::before {
+      content: "";
+      display: block;
+      height: 0;
+      margin-bottom: auto;
+      padding: 0;
+    }
+
+    .lp .lp-step::before {
+      font-family: var(--ff-display);
+      font-size: 0.82rem;
+    }
+
+    .lp .lp-ba__tag,
+    .lp .lp-ba__pair figcaption {
+      font-family: var(--ff-display);
+      letter-spacing: 0.03em;
+    }
+
+    .lp .lp-btn {
+      border-radius: 0.8rem;
+      box-shadow: none;
+    }
+
+    .lp .lp-treatment-card,
+    .lp .lp-treatment-card:first-child,
+    .lp .lp-cta-panel,
+    .lp .lp-includes,
+    .lp .lp-ba__pair {
+      border-radius: var(--radius-lg);
+    }
   </style>
 </head>
 <body>
@@ -1888,12 +2006,11 @@
           <figure class="lp-hero__media">
             <!-- IMAGE 1. Register entry IMG-16: PRP scalp injection photograph from the clinic's media library. -->
             <img src="assets/v1/hero-prp-injection.webp" width="1000" height="667" alt="A PRP injection into the scalp: a gloved hand holds a syringe at a parting in dark hair" fetchpriority="high" decoding="async">
-            <figcaption>PRP scalp injection</figcaption>
           </figure>
 
           <div class="lp-hero__copy">
-            <h1 id="v1-hero-title">3 PRP sessions. <em>One package.</em></h1>
-            <p class="lp-hero__lead">PRP, derma microneedling and infrared, included in one three-session package at Dr SW Clinics, Harley Street.</p>
+            <h1 id="v1-hero-title">Hair PRP, made from your own blood. <em>Three sessions. One package.</em></h1>
+            <p class="lp-hero__lead">PRP, derma microneedling and infrared, all included, at Dr SW Clinics on Harley Street.</p>
             <a class="lp-btn" href="#enquiry"><span>Ask about the package</span></a>
             <p class="lp-hero__note">The clinic confirms suitability only after reviewing your medical history and treatment goals.</p>
           </div>
@@ -1903,7 +2020,7 @@
       <!-- 02. The problem -->
       <section class="lp-section" aria-labelledby="v1-problem-title">
         <div class="lp-shell">
-          <span class="lp-eyebrow">02 · Know the plan</span>
+          <span class="lp-eyebrow">What you get</span>
           <div class="lp-split lp-split--media">
             <div>
               <h2 class="lp-heading" id="v1-problem-title">See what you are paying for before you enquire.</h2>
@@ -1921,7 +2038,7 @@
 
           <div class="lp-includes" role="group" aria-label="What the £950 package includes">
             <div class="lp-includes__head">
-              <span class="lp-eyebrow">What £950 includes</span>
+              <span class="lp-eyebrow">What the package includes</span>
               <span class="lp-includes__note">Three sessions, one price</span>
             </div>
             <ul class="lp-includes__list">
@@ -1941,26 +2058,10 @@
       <!-- 03. What it is -->
       <section class="lp-section lp-section--paper" aria-labelledby="v1-what-title">
         <div class="lp-shell">
-          <div class="lp-split lp-split--orbit">
-            <div>
-              <span class="lp-eyebrow">03 · What is included</span>
-              <h2 class="lp-heading" id="v1-what-title">One package, built around <em>three treatment elements.</em></h2>
-              <p class="lp-kicker">The package combines a three-session PRP course with derma microneedling and infrared. The clinic still needs to confirm whether it is suitable for you.</p>
-            </div>
-            <div class="lp-package-orbit" role="img" aria-label="The £950 package includes three sessions, PRP, derma microneedling and infrared">
-              <div class="lp-package-orbit__track" aria-hidden="true">
-                <span class="lp-orbit-tag lp-orbit-tag--one">3 sessions</span>
-                <span class="lp-orbit-tag lp-orbit-tag--two">PRP</span>
-                <span class="lp-orbit-tag lp-orbit-tag--three">Derma</span>
-                <span class="lp-orbit-tag lp-orbit-tag--four">Infrared</span>
-              </div>
-              <div class="lp-package-orbit__core">
-                <div>
-                  <span class="lp-package-orbit__price">£950</span>
-                  <span class="lp-package-orbit__label">Package total</span>
-                </div>
-              </div>
-            </div>
+          <div>
+            <span class="lp-eyebrow">The package</span>
+            <h2 class="lp-heading" id="v1-what-title">Three treatments, <em>one package.</em></h2>
+            <p class="lp-kicker">The package combines a three-session PRP course with derma microneedling and infrared. The clinic still needs to confirm whether it is suitable for you.</p>
           </div>
 
           <div class="lp-card-grid">
@@ -2001,7 +2102,7 @@
               <figcaption>77 Harley Street, London</figcaption>
             </figure>
             <div>
-              <span class="lp-eyebrow">04 · How it works</span>
+              <span class="lp-eyebrow">How it works</span>
               <h2 class="lp-heading" id="v1-process-title">What happens after you send the form.</h2>
               <p class="lp-kicker">Treatment does not begin from an advert. The clinic reviews your medical history and discusses your goals before confirming whether PRP is suitable.</p>
 
@@ -2039,7 +2140,7 @@
       <!-- 05. Proof -->
       <section class="lp-section lp-section--deep" aria-labelledby="v1-proof-title">
         <div class="lp-shell">
-          <span class="lp-eyebrow">05 · Published treatment details</span>
+          <span class="lp-eyebrow">Published by the clinic</span>
           <h2 class="lp-heading" id="v1-proof-title">What Dr SW Clinics states about PRP.</h2>
           <p class="lp-kicker lp-kicker--light">Only the clinic's published PRP treatment information is shown here.</p>
 
@@ -2119,7 +2220,7 @@
       <!-- 06. Who it is not for -->
       <section class="lp-section" aria-labelledby="v1-not-for-title">
         <div class="lp-shell">
-          <span class="lp-eyebrow">06 · Who it is not for</span>
+          <span class="lp-eyebrow">Not for everyone</span>
           <h2 class="lp-heading" id="v1-not-for-title">This package will not suit every person or every expectation.</h2>
           <p class="lp-kicker">The clinic must assess suitability. An advert cannot do that.</p>
 
@@ -2135,7 +2236,7 @@
       <!-- 07. Questions -->
       <section class="lp-section lp-section--paper" aria-labelledby="v1-faq-title">
         <div class="lp-shell">
-          <span class="lp-eyebrow">07 · Questions</span>
+          <span class="lp-eyebrow">Questions</span>
           <h2 class="lp-heading" id="v1-faq-title">Five useful answers before you enquire.</h2>
 
           <div class="lp-faqs">
@@ -2185,7 +2286,7 @@
       <section class="lp-section lp-section--deep" id="enquiry" aria-labelledby="v1-form-title">
         <div class="lp-shell lp-form-wrap">
           <div>
-            <span class="lp-eyebrow">08 · Enquire</span>
+            <span class="lp-eyebrow">Enquire</span>
             <h2 class="lp-heading" id="v1-form-title">Ask Dr SW Clinics about the Hair PRP package.</h2>
             <p class="lp-kicker lp-kicker--light">Send your details once. The clinic will review your enquiry before discussing treatment.</p>
 
