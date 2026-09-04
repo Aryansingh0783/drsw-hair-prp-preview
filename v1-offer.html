@@ -1971,6 +1971,53 @@
     .lp .lp-ba__pair {
       border-radius: var(--radius-lg);
     }
+
+    /* Mobile pass, 5 September 2026 */
+    .lp #enquiry {
+      scroll-margin-top: 1rem;
+    }
+
+    @media (max-width: 47.99rem) {
+      .lp .lp-btn {
+        min-height: 56px;
+      }
+
+      .lp .lp-field input,
+      .lp .lp-field select {
+        min-height: 56px;
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 47.99rem) {
+      .lp .lp-section {
+        padding-block: clamp(3rem, 9vw, 4.5rem);
+      }
+
+      .lp .lp-eyebrow {
+        font-size: 0.88rem;
+      }
+
+      .lp .lp-hero__note,
+      .lp .lp-form-disclaimer,
+      .lp .lp-figure figcaption,
+      .lp .lp-ba__pair figcaption {
+        font-size: 0.86rem;
+      }
+
+      .lp .lp-treatment-card {
+        min-height: 15rem;
+      }
+    }
+
+    @media (max-width: 47.99rem) {
+      .lp .lp-ba__tag,
+      .lp .lp-ba__pair figcaption,
+      .lp .lp-hero__media figcaption,
+      .lp .lp-brand__context {
+        font-size: 0.76rem;
+      }
+    }
   </style>
 </head>
 <body>
