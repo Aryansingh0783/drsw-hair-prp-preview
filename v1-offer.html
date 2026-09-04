@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="description" content="Ask Dr SW Clinics about a three-session Hair PRP package with derma microneedling and infrared for £950 total.">
-  <title>£950 Hair PRP Package | Dr SW Clinics</title>
+  <title>Hair PRP Package, 3 Sessions | Dr SW Clinics</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23112620'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='24' font-weight='700' fill='%23f4efe4'%3ESW%3C/text%3E%3C/svg%3E">
   <style>
     .lp {
@@ -1829,6 +1829,30 @@
         transform: none;
       }
     }
+
+    .lp .lp-hero {
+      min-height: 0;
+      align-items: start;
+      padding-block: 1.25rem 2.75rem;
+    }
+
+    @media (min-width: 48rem) {
+      .lp .lp-hero {
+        padding-block: 1.75rem 3.5rem;
+      }
+
+      .lp .lp-hero .lp-brand {
+        margin-bottom: clamp(1.75rem, 4vh, 2.75rem);
+      }
+
+      .lp .lp-hero__media {
+        min-height: 26rem;
+      }
+    }
+
+    .lp .lp-hero__media img {
+      object-position: 60% 45%;
+    }
   </style>
 </head>
 <body>
@@ -1840,11 +1864,12 @@
       PRP process, treatment facts and FAQs: https://drswclinics.com/treatment/prp-hair/
       Derma microneedling and infrared: inclusion only, from the approved brief. No mechanism, session order or outcome claim is made for either.
       Images: see the image register in CLAUDE-CODE-HANDOFF.md. Delivery method A: local files under assets/v1/, to be uploaded to the GoHighLevel media library and their src values replaced during funnel assembly.
-      IMG-12 hero: the clinic's own Hair PRP banner file from https://drswclinics.com/treatment/carboxytherapy-for-hair-loss/ (drswclinics-banner-prp-hair-loss-1920x1080px.jpg).
-      IMG-13 section 02: treatment room photograph from https://drswclinics.com/patient-journey/ (DSC01560).
+      IMG-16 hero: PRP scalp injection photograph from the clinic's media library (PRP-scalp-injection-for-hair-loss-treatment-in-male-patient.jpg).
+      IMG-19 section 02: reception hall photograph from https://drswclinics.com/patient-journey/ (DSC01046).
+      IMG-13 section 03 PRP card: treatment room photograph from https://drswclinics.com/patient-journey/ (DSC01560). IMG-17 and IMG-18: the microneedling and infrared card backgrounds.
       IMG-14 section 04: front door photograph from https://drswclinics.com/patient-journey/ (DSC01028).
       BA-01 and BA-02 section 05: the two Hair PRP before-and-after pairs the clinic publishes on https://drswclinics.com/treatment/prp-hair/, used on Aryan's instruction of 4 September 2026. Original order and framing kept, no retouching.
-      TODO(ALLEN): confirm paid-social reuse of IMG-12 to IMG-14 and patient consent for BA-01 and BA-02 before launch.
+      TODO(ALLEN): confirm paid-social reuse of the clinic photographs and patient consent for BA-01 and BA-02 before launch.
     -->
 
     <main>
@@ -1861,14 +1886,14 @@
           </div>
 
           <figure class="lp-hero__media">
-            <!-- IMAGE 1. Register entry IMG-12: the clinic's own Hair PRP banner image. -->
-            <img src="assets/v1/prp-hair-banner.webp" width="1536" height="864" alt="A man with thick, styled dark hair, photographed against a dark background" fetchpriority="high" decoding="async">
-            <figcaption>Hair PRP package</figcaption>
+            <!-- IMAGE 1. Register entry IMG-16: PRP scalp injection photograph from the clinic's media library. -->
+            <img src="assets/v1/hero-prp-injection.webp" width="1000" height="667" alt="A PRP injection into the scalp: a gloved hand holds a syringe at a parting in dark hair" fetchpriority="high" decoding="async">
+            <figcaption>PRP scalp injection</figcaption>
           </figure>
 
           <div class="lp-hero__copy">
-            <h1 id="v1-hero-title">3 PRP sessions. <em>£950 total.</em></h1>
-            <p class="lp-hero__lead">PRP, derma microneedling and infrared are included in one three-session package.</p>
+            <h1 id="v1-hero-title">3 PRP sessions. <em>One package.</em></h1>
+            <p class="lp-hero__lead">PRP, derma microneedling and infrared, included in one three-session package for £950 in total.</p>
             <a class="lp-btn" href="#enquiry"><span>Ask about the £950 package</span></a>
             <p class="lp-hero__note">The clinic confirms suitability only after reviewing your medical history and treatment goals.</p>
           </div>
@@ -1888,9 +1913,9 @@
               </div>
             </div>
             <figure class="lp-figure">
-              <!-- IMAGE 2. Register entry IMG-13: a treatment room at Dr SW Clinics, from the clinic's patient journey page. -->
-              <img src="assets/v1/treatment-room.webp" width="800" height="561" alt="A treatment room at Dr SW Clinics with a treatment couch, a device on a trolley, supplies on the worktop and the clinic name on the wall" loading="lazy" decoding="async">
-              <figcaption>Treatment room, Dr SW Clinics</figcaption>
+              <!-- IMAGE 2. Register entry IMG-19: the reception hall at Dr SW Clinics, from the clinic's patient journey page (DSC01046). -->
+              <img src="assets/v1/reception.webp" width="800" height="542" alt="The reception hall at Dr SW Clinics, with a chandelier, a fireplace, a curved reception desk and a tiled floor" loading="lazy" decoding="async">
+              <figcaption>Reception, Dr SW Clinics</figcaption>
             </figure>
           </div>
 
@@ -1940,7 +1965,7 @@
 
           <div class="lp-card-grid">
             <article class="lp-treatment-card lp-treatment-card--prp" data-step="01">
-              <img class="lp-treatment-card__media" src="assets/v1/card-prp.webp" width="1000" height="667" alt="" loading="lazy" decoding="async">
+              <img class="lp-treatment-card__media" src="assets/v1/treatment-room.webp" width="1024" height="719" alt="" loading="lazy" decoding="async">
               <h3>PRP</h3>
               <p>A small blood sample is taken. The platelet-rich plasma is separated in a centrifuge, then injected into the scalp.</p>
             </article>
@@ -2115,7 +2140,7 @@
 
           <div class="lp-faqs">
             <details class="lp-faq">
-              <summary>What does the £950 package include?</summary>
+              <summary>What does the package include?</summary>
               <div class="lp-faq__answer">
                 <p>It includes three sessions and combines PRP, derma microneedling and infrared. £950 is the total package price.</p>
               </div>
