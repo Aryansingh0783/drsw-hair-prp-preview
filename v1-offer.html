@@ -584,90 +584,6 @@
       line-height: 1.3;
     }
 
-    .lp .lp-compare {
-      display: grid;
-      gap: 1rem;
-      margin-top: clamp(2.5rem, 6vw, 4rem);
-    }
-
-    .lp .lp-compare__option {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      border: 1px solid var(--stone-300);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      background: var(--white-warm);
-    }
-
-    .lp .lp-compare__option--package {
-      border-color: var(--follicle-900);
-      color: var(--paper);
-      background: var(--follicle-900);
-      box-shadow: var(--shadow-md);
-    }
-
-    .lp .lp-compare__label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--follicle-700);
-      font-family: var(--ff-data);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .lp .lp-compare__option--package .lp-compare__label {
-      color: var(--fog);
-    }
-
-    .lp .lp-compare__price {
-      display: block;
-      margin-top: 0.35rem;
-      color: var(--follicle-950);
-      font-family: var(--ff-data);
-      font-size: clamp(2.1rem, 1.7rem + 1.6vw, 3.2rem);
-      font-weight: 600;
-      font-variant-numeric: tabular-nums;
-      letter-spacing: -0.06em;
-      line-height: 1;
-    }
-
-    .lp .lp-compare__option--package .lp-compare__price {
-      color: var(--infrared-300);
-    }
-
-    .lp .lp-compare__unit {
-      display: block;
-      color: var(--stone-700);
-      font-size: 0.86rem;
-      font-weight: 600;
-    }
-
-    .lp .lp-compare__option--package .lp-compare__unit {
-      color: var(--mist);
-    }
-
-    .lp .lp-compare__option p {
-      margin: 0.35rem 0 0;
-      color: var(--stone-700);
-      font-size: 0.94rem;
-    }
-
-    .lp .lp-compare__option--package p {
-      color: var(--mist);
-    }
-
-    .lp .lp-compare__note {
-      max-width: 44rem;
-      margin: 1rem 0 0;
-      color: var(--stone-700);
-      font-size: 0.82rem;
-    }
-
     .lp .lp-card-grid {
       display: grid;
       gap: 1rem;
@@ -1183,15 +1099,6 @@
         padding-top: 0.55rem;
       }
 
-      .lp .lp-compare {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 1.25rem;
-      }
-
-      .lp .lp-compare__option {
-        padding: 1.85rem;
-      }
-
       .lp .lp-card-grid {
         grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
         gap: 1.1rem;
@@ -1324,9 +1231,7 @@
         .lp .lp-section > .lp-shell > .lp-eyebrow,
         .lp .lp-section > .lp-shell > .lp-heading,
         .lp .lp-section > .lp-shell > .lp-kicker,
-        .lp .lp-split > *,
-        .lp .lp-compare__option,
-        .lp .lp-compare__note,
+        .lp .lp-split > :not(.lp-package-orbit),
         .lp .lp-treatment-card,
         .lp .lp-cta-panel,
         .lp .lp-step,
@@ -1372,53 +1277,600 @@
         translate: none !important;
       }
     }
+
+    .lp .lp-hero__inner {
+      gap: 1.25rem;
+    }
+
+    .lp .lp-hero .lp-brand {
+      margin-bottom: 0.35rem;
+    }
+
+    .lp .lp-hero__media {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      aspect-ratio: 3 / 2;
+      background: var(--follicle-900);
+      box-shadow: var(--shadow-md);
+    }
+
+    .lp .lp-hero__media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lp .lp-hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 35, 29, 0) 52%, rgba(16, 35, 29, 0.66) 100%);
+      pointer-events: none;
+    }
+
+    .lp .lp-hero__media figcaption {
+      position: absolute;
+      left: 1.1rem;
+      bottom: 0.95rem;
+      z-index: 1;
+      color: var(--mist);
+      font-family: var(--ff-data);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .lp .lp-figure {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--stone-200);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lp .lp-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .lp .lp-figure--cover img {
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .lp .lp-ba {
+      margin-top: 2.5rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .lp .lp-ba__head h3 {
+      margin-bottom: 0.5rem;
+      color: var(--white-warm);
+      font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.85rem);
+    }
+
+    .lp .lp-ba__head p {
+      max-width: 44rem;
+      margin: 0 0 1.5rem;
+      color: var(--fog);
+      font-size: 0.94rem;
+    }
+
+    .lp .lp-ba__grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .lp .lp-ba__pair {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 252, 246, 0.05);
+    }
+
+    .lp .lp-ba__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      align-items: start;
+      background: rgba(255, 252, 246, 0.14);
+    }
+
+    .lp .lp-ba__shot {
+      position: relative;
+      min-height: 6rem;
+      background: var(--follicle-900);
+    }
+
+    .lp .lp-ba__shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .lp .lp-ba__tag {
+      position: absolute;
+      top: 0.6rem;
+      left: 0.6rem;
+      z-index: 1;
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      color: var(--follicle-950);
+      background: var(--paper);
+      font-family: var(--ff-data);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .lp .lp-ba__pair figcaption {
+      padding: 0.8rem 1rem;
+      color: var(--fog);
+      font-family: var(--ff-data);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .lp .lp-figure figcaption {
+      padding: 0.7rem 1rem 0.8rem;
+      color: var(--stone-700);
+      background: var(--white-warm);
+      font-family: var(--ff-data);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .lp .lp-split--media {
+      gap: 1.5rem;
+    }
+
+    .lp .lp-split--media .lp-plain-card {
+      margin-top: 1.25rem;
+    }
+
+    .lp .lp-includes {
+      margin-top: clamp(2.5rem, 6vw, 4rem);
+      overflow: hidden;
+      border: 1px solid var(--stone-300);
+      border-radius: var(--radius-lg);
+      background: var(--white-warm);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lp .lp-includes__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+      padding: 1.1rem 1.35rem;
+      border-bottom: 1px solid var(--stone-200);
+    }
+
+    .lp .lp-includes__head .lp-eyebrow {
+      margin-bottom: 0;
+    }
+
+    .lp .lp-includes__note {
+      color: var(--stone-700);
+      font-size: 0.84rem;
+    }
+
+    .lp .lp-includes__list {
+      display: grid;
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background: var(--stone-200);
+    }
+
+    .lp .lp-includes__list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.35rem;
+      background: var(--white-warm);
+    }
+
+    .lp .lp-includes__label {
+      color: var(--stone-900);
+      font-weight: 600;
+    }
+
+    .lp .lp-includes__label small {
+      display: block;
+      color: var(--stone-700);
+      font-size: 0.84rem;
+      font-weight: 400;
+    }
+
+    .lp .lp-includes__value {
+      flex: 0 0 auto;
+      color: var(--follicle-700);
+      font-family: var(--ff-data);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .lp .lp-includes__total {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.35rem;
+      color: var(--paper);
+      background: var(--follicle-950);
+    }
+
+    .lp .lp-includes__total span {
+      font-weight: 600;
+    }
+
+    .lp .lp-includes__total small {
+      display: block;
+      color: var(--fog);
+      font-size: 0.82rem;
+      font-weight: 400;
+    }
+
+    .lp .lp-includes__total strong {
+      color: var(--infrared-300);
+      font-family: var(--ff-data);
+      font-size: 1.85rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .lp .lp-split--orbit {
+      align-items: center;
+    }
+
+    .lp .lp-section--paper .lp-package-orbit {
+      min-height: 22rem;
+    }
+
+    .lp .lp-section--paper .lp-package-orbit::before,
+    .lp .lp-section--paper .lp-package-orbit::after {
+      border-color: rgba(16, 35, 29, 0.14);
+    }
+
+    .lp .lp-section--paper .lp-package-orbit__track::before {
+      border-color: rgba(16, 35, 29, 0.12);
+    }
+
+    .lp .lp-section--paper .lp-package-orbit__track::after {
+      border-color: rgba(200, 98, 66, 0.22);
+      box-shadow: 0 0 2.5rem rgba(200, 98, 66, 0.1);
+    }
+
+    .lp .lp-section--paper .lp-package-orbit__core {
+      color: var(--white-warm);
+      background: var(--follicle-950);
+      box-shadow: 0 0 0 1rem rgba(16, 35, 29, 0.05);
+    }
+
+    .lp .lp-section--paper .lp-package-orbit__price {
+      color: var(--infrared-300);
+    }
+
+    .lp .lp-section--paper .lp-package-orbit__label {
+      color: var(--fog);
+    }
+
+    .lp .lp-split--steps {
+      gap: 2rem;
+    }
+
+    .lp .lp-split--steps .lp-steps {
+      margin-top: 1.75rem;
+    }
+
+    @media (min-width: 48rem) {
+      .lp .lp-hero__inner {
+        grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+        grid-template-rows: auto 1fr;
+        gap: 0 clamp(2rem, 5vw, 4.5rem);
+      }
+
+      .lp .lp-hero .lp-brand {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: clamp(3rem, 8vh, 5rem);
+      }
+
+      .lp .lp-hero__copy {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .lp .lp-hero__media {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: stretch;
+        min-height: 30rem;
+        aspect-ratio: auto;
+      }
+
+      .lp .lp-split--media {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        align-items: center;
+        gap: clamp(2rem, 5vw, 4rem);
+      }
+
+      .lp .lp-includes__list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lp .lp-includes__list li {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .lp .lp-split--orbit {
+        grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+        gap: clamp(1.5rem, 4vw, 3rem);
+      }
+
+      .lp .lp-section--paper .lp-package-orbit {
+        min-height: 30rem;
+      }
+
+      .lp .lp-ba__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .lp .lp-split--steps {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        align-items: start;
+        gap: clamp(2rem, 5vw, 4rem);
+      }
+
+      .lp .lp-split--steps .lp-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .lp .lp-split--steps .lp-step {
+        grid-template-columns: 3rem 1fr;
+        padding-bottom: 1.9rem;
+      }
+
+      .lp .lp-split--steps .lp-step:last-child {
+        padding-bottom: 0;
+      }
+
+      .lp .lp-split--steps .lp-step:not(:last-child)::after {
+        top: 3rem;
+        right: auto;
+        bottom: 0;
+        left: 1.5rem;
+        width: 1px;
+        height: auto;
+      }
+    }
+
+    @media (min-width: 48rem) and (max-width: 63.99rem) {
+      .lp .lp-section--paper .lp-package-orbit {
+        min-height: 25rem;
+      }
+
+      .lp .lp-package-orbit__track {
+        width: min(73%, 15rem);
+      }
+
+      .lp .lp-package-orbit__core {
+        width: 6rem;
+      }
+
+      .lp .lp-package-orbit__price {
+        font-size: 1.8rem;
+      }
+
+      .lp .lp-package-orbit__label {
+        max-width: 4.4rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.06em;
+      }
+
+      .lp .lp-orbit-tag {
+        padding: 0.52rem 0.7rem;
+        font-size: 0.72rem;
+      }
+
+      .lp .lp-orbit-tag--one {
+        padding-inline: 0.52rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .lp .lp-hero .lp-brand,
+      .lp .lp-hero__media {
+        animation: lp-rise 900ms var(--ease-out) both;
+      }
+
+      .lp .lp-hero__media {
+        animation-delay: 120ms;
+      }
+    }
+
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .lp .lp-includes,
+        .lp .lp-figure,
+        .lp .lp-ba__pair {
+          animation: lp-rise linear both;
+          animation-timeline: view();
+          animation-range: cover 0% cover 28%;
+        }
+      }
+    }
+
+    .lp .lp-card-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .lp .lp-treatment-card,
+    .lp .lp-treatment-card:first-child {
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 17rem;
+      padding: 1.5rem;
+      border-color: rgba(16, 35, 29, 0.4);
+      background: var(--follicle-950);
+      color: var(--paper);
+      box-shadow: var(--shadow-md);
+    }
+
+    .lp .lp-treatment-card__media {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 900ms var(--ease-out);
+    }
+
+    .lp .lp-treatment-card--prp .lp-treatment-card__media {
+      object-position: 58% 42%;
+    }
+
+    .lp .lp-treatment-card--needling .lp-treatment-card__media {
+      object-position: 50% 45%;
+    }
+
+    .lp .lp-treatment-card--infrared .lp-treatment-card__media {
+      object-position: 50% 40%;
+    }
+
+    .lp .lp-treatment-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(16, 35, 29, 0.1) 0%, rgba(16, 35, 29, 0.48) 46%, rgba(16, 35, 29, 0.94) 100%);
+    }
+
+    .lp .lp-treatment-card--infrared::after {
+      background: linear-gradient(180deg, rgba(120, 44, 24, 0.28) 0%, rgba(16, 35, 29, 0.56) 46%, rgba(16, 35, 29, 0.94) 100%);
+    }
+
+    .lp .lp-treatment-card:hover .lp-treatment-card__media {
+      transform: scale(1.04);
+    }
+
+    .lp .lp-treatment-card::before {
+      color: var(--infrared-300);
+    }
+
+    .lp .lp-treatment-card h3,
+    .lp .lp-treatment-card:first-child h3 {
+      color: var(--white-warm);
+      font-size: 1.5rem;
+    }
+
+    .lp .lp-treatment-card p,
+    .lp .lp-treatment-card:first-child p {
+      max-width: none;
+      color: var(--fog);
+      font-size: 0.98rem;
+    }
+
+    @media (min-width: 48rem) {
+      .lp .lp-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.1rem;
+      }
+
+      .lp .lp-treatment-card,
+      .lp .lp-treatment-card:first-child {
+        grid-row: auto;
+        min-height: 21rem;
+        padding: 1.6rem;
+      }
+    }
+
+    @media (min-width: 64rem) {
+      .lp .lp-treatment-card,
+      .lp .lp-treatment-card:first-child {
+        min-height: 25rem;
+        padding: 1.9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lp .lp-treatment-card__media {
+        transition: none;
+      }
+
+      .lp .lp-treatment-card:hover .lp-treatment-card__media {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="lp">
     <!--
-      SOURCE NOTES FOR REVIEW
-      Package and price: Aryan's approved brief, 4 September 2026.
-      Published PRP-only course price (1,500 GBP, 3 x course, 1 session per month): https://drswclinics.com/treatment/prp-hair/ pricing block, checked 4 September 2026.
+      SOURCE NOTES FOR REVIEW (V1, offer-led, combined Hair PRP package)
+      Package, price and included elements: Aryan's approved brief, 4 September 2026. £950 is the only price on this page.
+      Discrepancy recorded, not shown: the clinic's PRP Hair page lists PRP from £750 per session and £1,500 for a 3 x course. See CLAUDE-CODE-HANDOFF.md.
       PRP process, treatment facts and FAQs: https://drswclinics.com/treatment/prp-hair/
-      Microneedling device description: https://drswclinics.com/treatment/dermapen-micro-needling/
-      Infrared: inclusion only, from Aryan's approved brief. No mechanism or outcome claim is made.
-      PROOF ASSET SLOT: 1280 x 960 px. Add only client-cleared clinical photography hosted inside GHL.
-      Any inserted img must include width="1280", height="960" and a specific, factual alt description.
+      Derma microneedling and infrared: inclusion only, from the approved brief. No mechanism, session order or outcome claim is made for either.
+      Images: see the image register in CLAUDE-CODE-HANDOFF.md. Delivery method A: local files under assets/v1/, to be uploaded to the GoHighLevel media library and their src values replaced during funnel assembly.
+      IMG-12 hero: the clinic's own Hair PRP banner file from https://drswclinics.com/treatment/carboxytherapy-for-hair-loss/ (drswclinics-banner-prp-hair-loss-1920x1080px.jpg).
+      IMG-13 section 02: treatment room photograph from https://drswclinics.com/patient-journey/ (DSC01560).
+      IMG-14 section 04: front door photograph from https://drswclinics.com/patient-journey/ (DSC01028).
+      BA-01 and BA-02 section 05: the two Hair PRP before-and-after pairs the clinic publishes on https://drswclinics.com/treatment/prp-hair/, used on Aryan's instruction of 4 September 2026. Original order and framing kept, no retouching.
+      TODO(ALLEN): confirm paid-social reuse of IMG-12 to IMG-14 and patient consent for BA-01 and BA-02 before launch.
     -->
 
     <main>
       <!-- 01. Hero -->
       <section class="lp-hero" aria-labelledby="v1-hero-title">
         <div class="lp-shell lp-hero__inner">
+          <div class="lp-brand">
+            <!-- Official Dr SW Clinics vector wordmark, embedded from https://drswclinics.com/wp-content/uploads/2023/05/drsw-logo.svg -->
+            <span class="lp-brand__lockup">
+              <img class="lp-brand__logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NDQuODA5IiBoZWlnaHQ9IjI1MC4yMzgiIHZpZXdCb3g9IjAgMCA1NDQuODA5IDI1MC4yMzgiPgogIDxnIGlkPSJkcnN3LWxvZ28iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zLjYzIC03LjQwNykiPgogICAgPGcgaWQ9Ikdyb3VwXzMiIGRhdGEtbmFtZT0iR3JvdXAgMyI+CiAgICAgIDxnIGlkPSJHcm91cF8yIiBkYXRhLW5hbWU9Ikdyb3VwIDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwNy45MyAzNjcuNTA4KSI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwXzEiIGRhdGEtbmFtZT0iR3JvdXAgMSI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF8xIiBkYXRhLW5hbWU9IlBhdGggMSIgZD0iTS0zNTQuMS0zNTguMXEzMi41NSwwLDQ4LjcsMTYuMywxNi4yLDE2LjIsMTYuMiw0Ny4zYzAsMTMuMy0yLjYsMjUuMS03LjksMzUuMUE1NS4xLDU1LjEsMCwwLDEtMzIwLTIzNi4yYy0xMCw1LjQtMjEuOSw4LjItMzUuOCw4LjJsLTEwLjYtLjJjLTYuOS0uMi0xMS45LS40LTE1LjEtLjQtMTAsMC0xNy42LjItMjIuOC41di0zLjdxNi42LS4zLDkuNi0xLjVhNi4zNzUsNi4zNzUsMCwwLDAsNC4xLTQuMmMuNy0yLjEsMS4xLTUuNCwxLjEtMTAuMXYtOTEuMWMwLTQuNy0uNC04LTEuMS0xMC4xYTYuMzc1LDYuMzc1LDAsMCwwLTQuMS00LjIsMzkuOTQ1LDM5Ljk0NSwwLDAsMC05LjYtMS41di0zLjdjNC4zLjQsMTAuMi41LDE3LjguNWwxNS42LS4yQy0zNjIuNS0zNTgtMzU3LTM1OC4xLTM1NC4xLTM1OC4xWm0tNC42LDMuM2MtMy44LDAtNi42LjQtOC41LDEuM2E3LjQsNy40LDAsMCwwLTQsNC42LDM0LjUzLDM0LjUzLDAsMCwwLTEuMSw5Ljl2OTEuOWEzNC41MywzNC41MywwLDAsMCwxLjEsOS45LDcuMzcsNy4zNywwLDAsMCw0LDQuNiwyMy4zNTEsMjMuMzUxLDAsMCwwLDguNywxLjNjMTMsMCwyMy4yLTIuNCwzMC43LTcuMXMxMi43LTExLjYsMTUuNy0yMC43LDQuNS0yMC42LDQuNS0zNC43LTEuNy0yNS42LTUtMzQuNGMtMy4zLTguOS04LjctMTUuNS0xNi4xLTE5LjlTLTM0Ni4xLTM1NC44LTM1OC43LTM1NC44WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzYiIGRhdGEtbmFtZT0iR3JvdXAgNiI+CiAgICAgIDxnIGlkPSJHcm91cF81IiBkYXRhLW5hbWU9Ikdyb3VwIDUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMi4zOTIgMzY3LjUwOCkiPgogICAgICAgIDxnIGlkPSJHcm91cF80IiBkYXRhLW5hbWU9Ikdyb3VwIDQiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfMiIgZGF0YS1uYW1lPSJQYXRoIDIiIGQ9Ik0tMzE0LjctMzI1LjJxNy4zNSwwLDEyLDQuMmExMy4zNDYsMTMuMzQ2LDAsMCwxLDQuNywxMC4zLDEyLjQ0NiwxMi40NDYsMCwwLDEtMi45LDguMiw5LjI3NCw5LjI3NCwwLDAsMS03LjYsMy40LDEwLjAyNiwxMC4wMjYsMCwwLDEtNi45LTIuNiw4LjgzNSw4LjgzNSwwLDAsMS0yLjgtN2MwLTQuMSwyLjEtNy40LDYuMi05LjlhNC4zNDIsNC4zNDIsMCwwLDAtMy45LTEuOGMtNC44LDAtOS4xLDEuOS0xMyw1LjZhMzguOTA2LDM4LjkwNiwwLDAsMC05LjIsMTMuNyw0MC41NDcsNDAuNTQ3LDAsMCwwLTMuMywxNS4ydjM5YzAsNS42LDEuNiw5LjYsNC45LDExLjhzOC4xLDMuMywxNC42LDMuM3YzLjlsLTQuNC0uMmMtMTIuNS0uNC0yMC40LS41LTIzLjktLjUtMy4yLDAtMTAuNC4yLTIxLjcuN3YtMy45YzUuMSwwLDguOC0uOSwxMC44LTIuOSwyLjEtMS45LDMuMS01LjQsMy4xLTEwLjR2LTU3LjVjMC01LjYtMS05LjctMy4xLTEyLjNzLTUuNy0zLjktMTAuOC0zLjl2LTMuOWExMTEuNzQxLDExMS43NDEsMCwwLDAsMTEuNC42YzcuNywwLDE0LjEtLjksMTkuMS0yLjZ2MjNhNDMuMyw0My4zLDAsMCwxLDEwLjYtMTYuNEMtMzI2LTMyMi44LTMyMC42LTMyNS4yLTMxNC43LTMyNS4yWiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzkiIGRhdGEtbmFtZT0iR3JvdXAgOSI+CiAgICAgIDxnIGlkPSJHcm91cF84IiBkYXRhLW5hbWU9Ikdyb3VwIDgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU3OC41NDMgMzY3LjUwOCkiPgogICAgICAgIDxnIGlkPSJHcm91cF83IiBkYXRhLW5hbWU9Ikdyb3VwIDciPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfMyIgZGF0YS1uYW1lPSJQYXRoIDMiIGQ9Ik0tMzMyLTI0OC45YTExLjU4NCwxMS41ODQsMCwwLDEsOC4zLDMuNSwxMS40MTcsMTEuNDE3LDAsMCwxLDMuNSw4LjMsMTEuNTg0LDExLjU4NCwwLDAsMS0zLjUsOC4zLDExLjQxNywxMS40MTcsMCwwLDEtOC4zLDMuNSwxMS41ODQsMTEuNTg0LDAsMCwxLTguMy0zLjUsMTEuNDE3LDExLjQxNywwLDAsMS0zLjUtOC4zLDExLjU4NCwxMS41ODQsMCwwLDEsMy41LTguM0ExMS4xOTMsMTEuMTkzLDAsMCwxLTMzMi0yNDguOVoiIGZpbGw9IiNmZmYiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICAgIDxnIGlkPSJHcm91cF8xMiIgZGF0YS1uYW1lPSJHcm91cCAxMiI+CiAgICAgIDxnIGlkPSJHcm91cF8xMSIgZGF0YS1uYW1lPSJHcm91cCAxMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjE4LjA5NiAzNjcuNTA4KSI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwXzEwIiBkYXRhLW5hbWU9Ikdyb3VwIDEwIj4KICAgICAgICAgIDxwYXRoIGlkPSJQYXRoXzQiIGRhdGEtbmFtZT0iUGF0aCA0IiBkPSJNLTI5NC45LTM2MC4xYzUuNCwwLDkuNi42LDEyLjgsMS44YTQ5LjIwNiw0OS4yMDYsMCwwLDEsOS42LDVjMi43LDEuNyw0LjgsMi42LDYuMiwyLjZhMi44MDgsMi44MDgsMCwwLDAsMi42LTEuOSwyMy4xMzUsMjMuMTM1LDAsMCwwLDEuNS02LjJoNC4ycS0uOSwxMC42NS0uOSwzNy41aC00LjJjLS43LTkuOS0zLjYtMTguMy04LjUtMjUuMXEtNy41LTEwLjItMjEuNi0xMC4yLTkuOSwwLTE2LjIsNmMtNC4yLDQtNi4yLDkuMS02LjIsMTUuNGEyMi41LDIyLjUsMCwwLDAsMy4yLDEyLjEsMzIuNzIyLDMyLjcyMiwwLDAsMCw4LjIsOC44YzMuMywyLjQsOCw1LjYsMTQuMiw5LjRsNS4zLDMuM0ExOTYuNzg3LDE5Ni43ODcsMCwwLDEtMjY2LjQtMjg5YTQ1LjExMSw0NS4xMTEsMCwwLDEsMTAuOCwxMi40LDMyLjE1MSwzMi4xNTEsMCwwLDEsNCwxNi40YzAsMTEuMS0zLjcsMTkuNy0xMSwyNS44cy0xNi43LDkuMS0yNy45LDkuMWE0Ny43MTQsNDcuNzE0LDAsMCwxLTE0LjQtMS44LDUyLjU3Niw1Mi41NzYsMCwwLDEtMTAuOC01Yy0yLjctMS43LTQuOC0yLjYtNi4yLTIuNmEyLjgwOCwyLjgwOCwwLDAsMC0yLjYsMS45LDIzLjI0NywyMy4yNDcsMCwwLDAtMS41LDYuMWgtNC4yYy41LTYuNy43LTIxLjQuNy00NC4xaDQuMmMuOSwxMi40LDMuOSwyMi40LDkuMiwzMC4xczEzLjMsMTEuNiwyNC4yLDExLjZhMjQuNTY3LDI0LjU2NywwLDAsMCwxNi45LTYuMWM0LjctNC4xLDctMTAuMiw3LTE4LjNhMjQuMywyNC4zLDAsMCwwLTYuOS0xNy41Yy00LjYtNC44LTExLjktMTAuMi0yMS44LTE2LjJBMTc5LjYsMTc5LjYsMCwwLDEtMzE0LjItMjk5YTQxLjY4OSw0MS42ODksMCwwLDEtMTAuOS0xMi40LDMzLjIyOCwzMy4yMjgsMCwwLDEtNC4yLTE3YzAtMTAuMywzLjMtMTguMiw5LjktMjMuNkMtMzEyLjktMzU3LjQtMzA0LjctMzYwLjEtMjk0LjktMzYwLjFaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMTUiIGRhdGEtbmFtZT0iR3JvdXAgMTUiPgogICAgICA8ZyBpZD0iR3JvdXBfMTQiIGRhdGEtbmFtZT0iR3JvdXAgMTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5Ny4zMzkgMzY3LjUwOCkiPgogICAgICAgIDxnIGlkPSJHcm91cF8xMyIgZGF0YS1uYW1lPSJHcm91cCAxMyI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF81IiBkYXRhLW5hbWU9IlBhdGggNSIgZD0iTS0xNjIuNy0zNTcuNWM1LjUsMCwxMC4xLS4yLDEzLjgtLjV2My43Yy02LjksMS42LTExLjcsNi45LTE0LjUsMTZMLTE5OC4xLTIyN2gtM2wtMzItOTQuNkwtMjYyLjMtMjI3aC0yLjlsLTM5LTExNS42Yy0yLjYtNy42LTYuOC0xMS41LTEyLjctMTEuOHYtMy43YzUsLjQsMTEuNi41LDE5LjcuNSw4LjgsMCwxNS40LS4yLDE5LjktLjV2My43Yy0zLjMuMi01LjYuOS03LDEuOWE1LjQyNCw1LjQyNCwwLDAsMC0yLDQuNmMwLDIsLjcsNSwyLDlsMjYuOCw4MiwyMi40LTcxLjEtNS0xNC41Yy0yLjQtNy42LTYuMS0xMS41LTEwLjgtMTEuOFYtMzU4YzQuNC40LDEwLjQuNSwxNy44LjUsMTAuNSwwLDE4LjQtLjIsMjMuNS0uNXYzLjdjLTQuNy4yLTcuOS44LTkuOCwxLjYtMS44LjgtMi44LDIuNS0yLjgsNS4xYTMwLjI3NywzMC4yNzcsMCwwLDAsMS44LDguOGwyNi41LDgxLjgsMjIuNi03MS4xYTQ4Ljc1OCw0OC43NTgsMCwwLDAsMi45LTE0LjljMC00LTEuMi02LjktMy43LTguNS0yLjQtMS43LTYuNC0yLjUtMTEuOS0yLjd2LTMuN0MtMTc2LjgtMzU3LjctMTY5LjgtMzU3LjUtMTYyLjctMzU3LjVaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMTgiIGRhdGEtbmFtZT0iR3JvdXAgMTgiPgogICAgICA8ZyBpZD0iR3JvdXBfMTciIGRhdGEtbmFtZT0iR3JvdXAgMTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MC4zMzMgNDU1Ljc0NSkiPgogICAgICAgIDxnIGlkPSJHcm91cF8xNiIgZGF0YS1uYW1lPSJHcm91cCAxNiI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF82IiBkYXRhLW5hbWU9IlBhdGggNiIgZD0iTS0zNzUuNi0yMzEuN2ExNy45ODYsMTcuOTg2LDAsMCwxLDYuOCwxLjQsMTcuMTY5LDE3LjE2OSwwLDAsMSw1LjgsMy44bC0zLjIsNGExNC4zMTYsMTQuMzE2LDAsMCwwLTQuMi0zLjEsMTEuMDMyLDExLjAzMiwwLDAsMC01LTEuMSwxMS4zODgsMTEuMzg4LDAsMCwwLTguNCwzLjQsMTAuOTQ1LDEwLjk0NSwwLDAsMC0zLjQsOC4yLDExLjE2NSwxMS4xNjUsMCwwLDAsMy40LDguMywxMS43ODksMTEuNzg5LDAsMCwwLDguNCwzLjQsMTIuOTcxLDEyLjk3MSwwLDAsMCw5LjItMy45bDMuMywzLjdhMTkuODU2LDE5Ljg1NiwwLDAsMS01LjksNCwxNi43MjYsMTYuNzI2LDAsMCwxLTYuOCwxLjUsMTYuOSwxNi45LDAsMCwxLTEyLjItNC44LDE1LjkxOCwxNS45MTgsMCwwLDEtNC45LTExLjksMTUuNzg3LDE1Ljc4NywwLDAsMSw1LTExLjhDLTM4NC42LTIzMC4xLTM4MC41LTIzMS43LTM3NS42LTIzMS43WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzIxIiBkYXRhLW5hbWU9Ikdyb3VwIDIxIj4KICAgICAgPGcgaWQ9Ikdyb3VwXzIwIiBkYXRhLW5hbWU9Ikdyb3VwIDIwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MTMuMjc3IDQ1NS43NDUpIj4KICAgICAgICA8ZyBpZD0iR3JvdXBfMTkiIGRhdGEtbmFtZT0iR3JvdXAgMTkiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfNyIgZGF0YS1uYW1lPSJQYXRoIDciIGQ9Ik0tMzY3LTIwMy42aDE0LjN2NWgtMTkuOXYtMzNoNS42WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzI0IiBkYXRhLW5hbWU9Ikdyb3VwIDI0Ij4KICAgICAgPGcgaWQ9Ikdyb3VwXzIzIiBkYXRhLW5hbWU9Ikdyb3VwIDIzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1NjAuNDU4IDQ1NS43NDUpIj4KICAgICAgICA8ZyBpZD0iR3JvdXBfMjIiIGRhdGEtbmFtZT0iR3JvdXAgMjIiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfOCIgZGF0YS1uYW1lPSJQYXRoIDgiIGQ9Ik0tMzUxLjMtMTk4LjZoLTUuNnYtMzNoNS42WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzI3IiBkYXRhLW5hbWU9Ikdyb3VwIDI3Ij4KICAgICAgPGcgaWQ9Ikdyb3VwXzI2IiBkYXRhLW5hbWU9Ikdyb3VwIDI2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OTkuNDM0IDQ1NS43NDUpIj4KICAgICAgICA8ZyBpZD0iR3JvdXBfMjUiIGRhdGEtbmFtZT0iR3JvdXAgMjUiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfOSIgZGF0YS1uYW1lPSJQYXRoIDkiIGQ9Ik0tMzE1LjItMTk4LjZoLTUuNWwtMTcuNi0yMy43djIzLjdoLTUuNnYtMzNoNS41bDE3LjcsMjMuN3YtMjMuN2g1LjVaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMzAiIGRhdGEtbmFtZT0iR3JvdXAgMzAiPgogICAgICA8ZyBpZD0iR3JvdXBfMjkiIGRhdGEtbmFtZT0iR3JvdXAgMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1NS43MzggNDU1Ljc0NSkiPgogICAgICAgIDxnIGlkPSJHcm91cF8yOCIgZGF0YS1uYW1lPSJHcm91cCAyOCI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF8xMCIgZGF0YS1uYW1lPSJQYXRoIDEwIiBkPSJNLTMxOS41LTE5OC42aC01LjZ2LTMzaDUuNloiIGZpbGw9IiNmZmYiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICAgIDxnIGlkPSJHcm91cF8zMyIgZGF0YS1uYW1lPSJHcm91cCAzMyI+CiAgICAgIDxnIGlkPSJHcm91cF8zMiIgZGF0YS1uYW1lPSJHcm91cCAzMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjk0LjcxNCA0NTUuNzQ1KSI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwXzMxIiBkYXRhLW5hbWU9Ikdyb3VwIDMxIj4KICAgICAgICAgIDxwYXRoIGlkPSJQYXRoXzExIiBkYXRhLW5hbWU9IlBhdGggMTEiIGQ9Ik0tMjk3LjUtMjMxLjdhMTcuOTg2LDE3Ljk4NiwwLDAsMSw2LjgsMS40LDE3LjE2OSwxNy4xNjksMCwwLDEsNS44LDMuOGwtMy4yLDRhMTQuMzE2LDE0LjMxNiwwLDAsMC00LjItMy4xLDExLjAzMiwxMS4wMzIsMCwwLDAtNS0xLjEsMTEuMzg4LDExLjM4OCwwLDAsMC04LjQsMy40LDEwLjk0NSwxMC45NDUsMCwwLDAtMy40LDguMiwxMS4xNjUsMTEuMTY1LDAsMCwwLDMuNCw4LjMsMTEuNzg5LDExLjc4OSwwLDAsMCw4LjQsMy40LDEyLjk3MSwxMi45NzEsMCwwLDAsOS4yLTMuOWwzLjMsMy43YTE5Ljg1NiwxOS44NTYsMCwwLDEtNS45LDQsMTYuNzI2LDE2LjcyNiwwLDAsMS02LjgsMS41LDE2LjksMTYuOSwwLDAsMS0xMi4yLTQuOCwxNS45MTgsMTUuOTE4LDAsMCwxLTQuOS0xMS45LDE1Ljc4NywxNS43ODcsMCwwLDEsNS0xMS44QTE1LjUxOSwxNS41MTksMCwwLDEtMjk3LjUtMjMxLjdaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMzYiIGRhdGEtbmFtZT0iR3JvdXAgMzYiPgogICAgICA8ZyBpZD0iR3JvdXBfMzUiIGRhdGEtbmFtZT0iR3JvdXAgMzUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc0Ny42NTggNDU1Ljc0NSkiPgogICAgICAgIDxnIGlkPSJHcm91cF8zNCIgZGF0YS1uYW1lPSJHcm91cCAzNCI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF8xMiIgZGF0YS1uYW1lPSJQYXRoIDEyIiBkPSJNLTI4My42LTIzMS44YTE5LjkzOCwxOS45MzgsMCwwLDEsMTEuNSwzLjRsLTIuMyw0LjlhMTkuMzE4LDE5LjMxOCwwLDAsMC05LjctMy4xLDcuMDMsNy4wMywwLDAsMC0zLjkuOSwyLjY1OSwyLjY1OSwwLDAsMC0xLjQsMi41LDMuNTQ1LDMuNTQ1LDAsMCwwLDEuMywyLjgsOC42MTYsOC42MTYsMCwwLDAsMy4zLDEuN2MxLjMuNCwyLjguOCw0LjMsMS40YTI3LjcxNywyNy43MTcsMCwwLDEsNC4zLDEuOCw4LjI4Nyw4LjI4NywwLDAsMSwzLjMsMi45LDguMSw4LjEsMCwwLDEsMS4zLDQuNyw4LjE3OCw4LjE3OCwwLDAsMS0zLjUsNi45LDE0Ljc4MSwxNC43ODEsMCwwLDEtOSwyLjYsMjAuMTU3LDIwLjE1NywwLDAsMS03LjMtMS40LDIwLjcsMjAuNywwLDAsMS02LjItMy44bDIuNC00LjhhMjEuNzQsMjEuNzQsMCwwLDAsNS41LDMuNiwxNS4zNTcsMTUuMzU3LDAsMCwwLDUuNywxLjIsOC4wNzEsOC4wNzEsMCwwLDAsNC41LTEuMSwzLjI2LDMuMjYsMCwwLDAsMS42LTIuOSwzLjc0MiwzLjc0MiwwLDAsMC0xLjMtMi45LDguNjE2LDguNjE2LDAsMCwwLTMuMy0xLjdjLTEuMy0uNC0yLjgtLjgtNC4zLTEuM3MtMy0xLjEtNC4zLTEuNmE4LjAyMSw4LjAyMSwwLDAsMS0zLjMtMi44LDcuODg4LDcuODg4LDAsMCwxLTEuMy00LjcsOC4wMjEsOC4wMjEsMCwwLDEsMy4zLTYuN0ExNS4wMTksMTUuMDE5LDAsMCwxLTI4My42LTIzMS44WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" width="545" height="250" alt="Dr SW Clinics" decoding="sync">
+            </span>
+            <span class="lp-brand__divider" aria-hidden="true"></span>
+            <span class="lp-brand__context">Hair PRP package</span>
+          </div>
+
+          <figure class="lp-hero__media">
+            <!-- IMAGE 1. Register entry IMG-12: the clinic's own Hair PRP banner image. -->
+            <img src="assets/v1/prp-hair-banner.webp" width="1536" height="864" alt="A man with thick, styled dark hair, photographed against a dark background" fetchpriority="high" decoding="async">
+            <figcaption>Hair PRP package</figcaption>
+          </figure>
+
           <div class="lp-hero__copy">
-            <div class="lp-brand">
-              <!-- Official Dr SW Clinics vector wordmark, embedded from https://drswclinics.com/wp-content/uploads/2023/05/drsw-logo.svg -->
-              <span class="lp-brand__lockup">
-                <img class="lp-brand__logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NDQuODA5IiBoZWlnaHQ9IjI1MC4yMzgiIHZpZXdCb3g9IjAgMCA1NDQuODA5IDI1MC4yMzgiPgogIDxnIGlkPSJkcnN3LWxvZ28iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zLjYzIC03LjQwNykiPgogICAgPGcgaWQ9Ikdyb3VwXzMiIGRhdGEtbmFtZT0iR3JvdXAgMyI+CiAgICAgIDxnIGlkPSJHcm91cF8yIiBkYXRhLW5hbWU9Ikdyb3VwIDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwNy45MyAzNjcuNTA4KSI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwXzEiIGRhdGEtbmFtZT0iR3JvdXAgMSI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF8xIiBkYXRhLW5hbWU9IlBhdGggMSIgZD0iTS0zNTQuMS0zNTguMXEzMi41NSwwLDQ4LjcsMTYuMywxNi4yLDE2LjIsMTYuMiw0Ny4zYzAsMTMuMy0yLjYsMjUuMS03LjksMzUuMUE1NS4xLDU1LjEsMCwwLDEtMzIwLTIzNi4yYy0xMCw1LjQtMjEuOSw4LjItMzUuOCw4LjJsLTEwLjYtLjJjLTYuOS0uMi0xMS45LS40LTE1LjEtLjQtMTAsMC0xNy42LjItMjIuOC41di0zLjdxNi42LS4zLDkuNi0xLjVhNi4zNzUsNi4zNzUsMCwwLDAsNC4xLTQuMmMuNy0yLjEsMS4xLTUuNCwxLjEtMTAuMXYtOTEuMWMwLTQuNy0uNC04LTEuMS0xMC4xYTYuMzc1LDYuMzc1LDAsMCwwLTQuMS00LjIsMzkuOTQ1LDM5Ljk0NSwwLDAsMC05LjYtMS41di0zLjdjNC4zLjQsMTAuMi41LDE3LjguNWwxNS42LS4yQy0zNjIuNS0zNTgtMzU3LTM1OC4xLTM1NC4xLTM1OC4xWm0tNC42LDMuM2MtMy44LDAtNi42LjQtOC41LDEuM2E3LjQsNy40LDAsMCwwLTQsNC42LDM0LjUzLDM0LjUzLDAsMCwwLTEuMSw5Ljl2OTEuOWEzNC41MywzNC41MywwLDAsMCwxLjEsOS45LDcuMzcsNy4zNywwLDAsMCw0LDQuNiwyMy4zNTEsMjMuMzUxLDAsMCwwLDguNywxLjNjMTMsMCwyMy4yLTIuNCwzMC43LTcuMXMxMi43LTExLjYsMTUuNy0yMC43LDQuNS0yMC42LDQuNS0zNC43LTEuNy0yNS42LTUtMzQuNGMtMy4zLTguOS04LjctMTUuNS0xNi4xLTE5LjlTLTM0Ni4xLTM1NC44LTM1OC43LTM1NC44WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzYiIGRhdGEtbmFtZT0iR3JvdXAgNiI+CiAgICAgIDxnIGlkPSJHcm91cF81IiBkYXRhLW5hbWU9Ikdyb3VwIDUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUxMi4zOTIgMzY3LjUwOCkiPgogICAgICAgIDxnIGlkPSJHcm91cF80IiBkYXRhLW5hbWU9Ikdyb3VwIDQiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfMiIgZGF0YS1uYW1lPSJQYXRoIDIiIGQ9Ik0tMzE0LjctMzI1LjJxNy4zNSwwLDEyLDQuMmExMy4zNDYsMTMuMzQ2LDAsMCwxLDQuNywxMC4zLDEyLjQ0NiwxMi40NDYsMCwwLDEtMi45LDguMiw5LjI3NCw5LjI3NCwwLDAsMS03LjYsMy40LDEwLjAyNiwxMC4wMjYsMCwwLDEtNi45LTIuNiw4LjgzNSw4LjgzNSwwLDAsMS0yLjgtN2MwLTQuMSwyLjEtNy40LDYuMi05LjlhNC4zNDIsNC4zNDIsMCwwLDAtMy45LTEuOGMtNC44LDAtOS4xLDEuOS0xMyw1LjZhMzguOTA2LDM4LjkwNiwwLDAsMC05LjIsMTMuNyw0MC41NDcsNDAuNTQ3LDAsMCwwLTMuMywxNS4ydjM5YzAsNS42LDEuNiw5LjYsNC45LDExLjhzOC4xLDMuMywxNC42LDMuM3YzLjlsLTQuNC0uMmMtMTIuNS0uNC0yMC40LS41LTIzLjktLjUtMy4yLDAtMTAuNC4yLTIxLjcuN3YtMy45YzUuMSwwLDguOC0uOSwxMC44LTIuOSwyLjEtMS45LDMuMS01LjQsMy4xLTEwLjR2LTU3LjVjMC01LjYtMS05LjctMy4xLTEyLjNzLTUuNy0zLjktMTAuOC0zLjl2LTMuOWExMTEuNzQxLDExMS43NDEsMCwwLDAsMTEuNC42YzcuNywwLDE0LjEtLjksMTkuMS0yLjZ2MjNhNDMuMyw0My4zLDAsMCwxLDEwLjYtMTYuNEMtMzI2LTMyMi44LTMyMC42LTMyNS4yLTMxNC43LTMyNS4yWiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzkiIGRhdGEtbmFtZT0iR3JvdXAgOSI+CiAgICAgIDxnIGlkPSJHcm91cF84IiBkYXRhLW5hbWU9Ikdyb3VwIDgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU3OC41NDMgMzY3LjUwOCkiPgogICAgICAgIDxnIGlkPSJHcm91cF83IiBkYXRhLW5hbWU9Ikdyb3VwIDciPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfMyIgZGF0YS1uYW1lPSJQYXRoIDMiIGQ9Ik0tMzMyLTI0OC45YTExLjU4NCwxMS41ODQsMCwwLDEsOC4zLDMuNSwxMS40MTcsMTEuNDE3LDAsMCwxLDMuNSw4LjMsMTEuNTg0LDExLjU4NCwwLDAsMS0zLjUsOC4zLDExLjQxNywxMS40MTcsMCwwLDEtOC4zLDMuNSwxMS41ODQsMTEuNTg0LDAsMCwxLTguMy0zLjUsMTEuNDE3LDExLjQxNywwLDAsMS0zLjUtOC4zLDExLjU4NCwxMS41ODQsMCwwLDEsMy41LTguM0ExMS4xOTMsMTEuMTkzLDAsMCwxLTMzMi0yNDguOVoiIGZpbGw9IiNmZmYiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICAgIDxnIGlkPSJHcm91cF8xMiIgZGF0YS1uYW1lPSJHcm91cCAxMiI+CiAgICAgIDxnIGlkPSJHcm91cF8xMSIgZGF0YS1uYW1lPSJHcm91cCAxMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjE4LjA5NiAzNjcuNTA4KSI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwXzEwIiBkYXRhLW5hbWU9Ikdyb3VwIDEwIj4KICAgICAgICAgIDxwYXRoIGlkPSJQYXRoXzQiIGRhdGEtbmFtZT0iUGF0aCA0IiBkPSJNLTI5NC45LTM2MC4xYzUuNCwwLDkuNi42LDEyLjgsMS44YTQ5LjIwNiw0OS4yMDYsMCwwLDEsOS42LDVjMi43LDEuNyw0LjgsMi42LDYuMiwyLjZhMi44MDgsMi44MDgsMCwwLDAsMi42LTEuOSwyMy4xMzUsMjMuMTM1LDAsMCwwLDEuNS02LjJoNC4ycS0uOSwxMC42NS0uOSwzNy41aC00LjJjLS43LTkuOS0zLjYtMTguMy04LjUtMjUuMXEtNy41LTEwLjItMjEuNi0xMC4yLTkuOSwwLTE2LjIsNmMtNC4yLDQtNi4yLDkuMS02LjIsMTUuNGEyMi41LDIyLjUsMCwwLDAsMy4yLDEyLjEsMzIuNzIyLDMyLjcyMiwwLDAsMCw4LjIsOC44YzMuMywyLjQsOCw1LjYsMTQuMiw5LjRsNS4zLDMuM0ExOTYuNzg3LDE5Ni43ODcsMCwwLDEtMjY2LjQtMjg5YTQ1LjExMSw0NS4xMTEsMCwwLDEsMTAuOCwxMi40LDMyLjE1MSwzMi4xNTEsMCwwLDEsNCwxNi40YzAsMTEuMS0zLjcsMTkuNy0xMSwyNS44cy0xNi43LDkuMS0yNy45LDkuMWE0Ny43MTQsNDcuNzE0LDAsMCwxLTE0LjQtMS44LDUyLjU3Niw1Mi41NzYsMCwwLDEtMTAuOC01Yy0yLjctMS43LTQuOC0yLjYtNi4yLTIuNmEyLjgwOCwyLjgwOCwwLDAsMC0yLjYsMS45LDIzLjI0NywyMy4yNDcsMCwwLDAtMS41LDYuMWgtNC4yYy41LTYuNy43LTIxLjQuNy00NC4xaDQuMmMuOSwxMi40LDMuOSwyMi40LDkuMiwzMC4xczEzLjMsMTEuNiwyNC4yLDExLjZhMjQuNTY3LDI0LjU2NywwLDAsMCwxNi45LTYuMWM0LjctNC4xLDctMTAuMiw3LTE4LjNhMjQuMywyNC4zLDAsMCwwLTYuOS0xNy41Yy00LjYtNC44LTExLjktMTAuMi0yMS44LTE2LjJBMTc5LjYsMTc5LjYsMCwwLDEtMzE0LjItMjk5YTQxLjY4OSw0MS42ODksMCwwLDEtMTAuOS0xMi40LDMzLjIyOCwzMy4yMjgsMCwwLDEtNC4yLTE3YzAtMTAuMywzLjMtMTguMiw5LjktMjMuNkMtMzEyLjktMzU3LjQtMzA0LjctMzYwLjEtMjk0LjktMzYwLjFaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMTUiIGRhdGEtbmFtZT0iR3JvdXAgMTUiPgogICAgICA8ZyBpZD0iR3JvdXBfMTQiIGRhdGEtbmFtZT0iR3JvdXAgMTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5Ny4zMzkgMzY3LjUwOCkiPgogICAgICAgIDxnIGlkPSJHcm91cF8xMyIgZGF0YS1uYW1lPSJHcm91cCAxMyI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF81IiBkYXRhLW5hbWU9IlBhdGggNSIgZD0iTS0xNjIuNy0zNTcuNWM1LjUsMCwxMC4xLS4yLDEzLjgtLjV2My43Yy02LjksMS42LTExLjcsNi45LTE0LjUsMTZMLTE5OC4xLTIyN2gtM2wtMzItOTQuNkwtMjYyLjMtMjI3aC0yLjlsLTM5LTExNS42Yy0yLjYtNy42LTYuOC0xMS41LTEyLjctMTEuOHYtMy43YzUsLjQsMTEuNi41LDE5LjcuNSw4LjgsMCwxNS40LS4yLDE5LjktLjV2My43Yy0zLjMuMi01LjYuOS03LDEuOWE1LjQyNCw1LjQyNCwwLDAsMC0yLDQuNmMwLDIsLjcsNSwyLDlsMjYuOCw4MiwyMi40LTcxLjEtNS0xNC41Yy0yLjQtNy42LTYuMS0xMS41LTEwLjgtMTEuOFYtMzU4YzQuNC40LDEwLjQuNSwxNy44LjUsMTAuNSwwLDE4LjQtLjIsMjMuNS0uNXYzLjdjLTQuNy4yLTcuOS44LTkuOCwxLjYtMS44LjgtMi44LDIuNS0yLjgsNS4xYTMwLjI3NywzMC4yNzcsMCwwLDAsMS44LDguOGwyNi41LDgxLjgsMjIuNi03MS4xYTQ4Ljc1OCw0OC43NTgsMCwwLDAsMi45LTE0LjljMC00LTEuMi02LjktMy43LTguNS0yLjQtMS43LTYuNC0yLjUtMTEuOS0yLjd2LTMuN0MtMTc2LjgtMzU3LjctMTY5LjgtMzU3LjUtMTYyLjctMzU3LjVaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMTgiIGRhdGEtbmFtZT0iR3JvdXAgMTgiPgogICAgICA8ZyBpZD0iR3JvdXBfMTciIGRhdGEtbmFtZT0iR3JvdXAgMTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MC4zMzMgNDU1Ljc0NSkiPgogICAgICAgIDxnIGlkPSJHcm91cF8xNiIgZGF0YS1uYW1lPSJHcm91cCAxNiI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF82IiBkYXRhLW5hbWU9IlBhdGggNiIgZD0iTS0zNzUuNi0yMzEuN2ExNy45ODYsMTcuOTg2LDAsMCwxLDYuOCwxLjQsMTcuMTY5LDE3LjE2OSwwLDAsMSw1LjgsMy44bC0zLjIsNGExNC4zMTYsMTQuMzE2LDAsMCwwLTQuMi0zLjEsMTEuMDMyLDExLjAzMiwwLDAsMC01LTEuMSwxMS4zODgsMTEuMzg4LDAsMCwwLTguNCwzLjQsMTAuOTQ1LDEwLjk0NSwwLDAsMC0zLjQsOC4yLDExLjE2NSwxMS4xNjUsMCwwLDAsMy40LDguMywxMS43ODksMTEuNzg5LDAsMCwwLDguNCwzLjQsMTIuOTcxLDEyLjk3MSwwLDAsMCw5LjItMy45bDMuMywzLjdhMTkuODU2LDE5Ljg1NiwwLDAsMS01LjksNCwxNi43MjYsMTYuNzI2LDAsMCwxLTYuOCwxLjUsMTYuOSwxNi45LDAsMCwxLTEyLjItNC44LDE1LjkxOCwxNS45MTgsMCwwLDEtNC45LTExLjksMTUuNzg3LDE1Ljc4NywwLDAsMSw1LTExLjhDLTM4NC42LTIzMC4xLTM4MC41LTIzMS43LTM3NS42LTIzMS43WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzIxIiBkYXRhLW5hbWU9Ikdyb3VwIDIxIj4KICAgICAgPGcgaWQ9Ikdyb3VwXzIwIiBkYXRhLW5hbWU9Ikdyb3VwIDIwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MTMuMjc3IDQ1NS43NDUpIj4KICAgICAgICA8ZyBpZD0iR3JvdXBfMTkiIGRhdGEtbmFtZT0iR3JvdXAgMTkiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfNyIgZGF0YS1uYW1lPSJQYXRoIDciIGQ9Ik0tMzY3LTIwMy42aDE0LjN2NWgtMTkuOXYtMzNoNS42WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzI0IiBkYXRhLW5hbWU9Ikdyb3VwIDI0Ij4KICAgICAgPGcgaWQ9Ikdyb3VwXzIzIiBkYXRhLW5hbWU9Ikdyb3VwIDIzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1NjAuNDU4IDQ1NS43NDUpIj4KICAgICAgICA8ZyBpZD0iR3JvdXBfMjIiIGRhdGEtbmFtZT0iR3JvdXAgMjIiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfOCIgZGF0YS1uYW1lPSJQYXRoIDgiIGQ9Ik0tMzUxLjMtMTk4LjZoLTUuNnYtMzNoNS42WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgaWQ9Ikdyb3VwXzI3IiBkYXRhLW5hbWU9Ikdyb3VwIDI3Ij4KICAgICAgPGcgaWQ9Ikdyb3VwXzI2IiBkYXRhLW5hbWU9Ikdyb3VwIDI2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OTkuNDM0IDQ1NS43NDUpIj4KICAgICAgICA8ZyBpZD0iR3JvdXBfMjUiIGRhdGEtbmFtZT0iR3JvdXAgMjUiPgogICAgICAgICAgPHBhdGggaWQ9IlBhdGhfOSIgZGF0YS1uYW1lPSJQYXRoIDkiIGQ9Ik0tMzE1LjItMTk4LjZoLTUuNWwtMTcuNi0yMy43djIzLjdoLTUuNnYtMzNoNS41bDE3LjcsMjMuN3YtMjMuN2g1LjVaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMzAiIGRhdGEtbmFtZT0iR3JvdXAgMzAiPgogICAgICA8ZyBpZD0iR3JvdXBfMjkiIGRhdGEtbmFtZT0iR3JvdXAgMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1NS43MzggNDU1Ljc0NSkiPgogICAgICAgIDxnIGlkPSJHcm91cF8yOCIgZGF0YS1uYW1lPSJHcm91cCAyOCI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF8xMCIgZGF0YS1uYW1lPSJQYXRoIDEwIiBkPSJNLTMxOS41LTE5OC42aC01LjZ2LTMzaDUuNloiIGZpbGw9IiNmZmYiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICAgIDxnIGlkPSJHcm91cF8zMyIgZGF0YS1uYW1lPSJHcm91cCAzMyI+CiAgICAgIDxnIGlkPSJHcm91cF8zMiIgZGF0YS1uYW1lPSJHcm91cCAzMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjk0LjcxNCA0NTUuNzQ1KSI+CiAgICAgICAgPGcgaWQ9Ikdyb3VwXzMxIiBkYXRhLW5hbWU9Ikdyb3VwIDMxIj4KICAgICAgICAgIDxwYXRoIGlkPSJQYXRoXzExIiBkYXRhLW5hbWU9IlBhdGggMTEiIGQ9Ik0tMjk3LjUtMjMxLjdhMTcuOTg2LDE3Ljk4NiwwLDAsMSw2LjgsMS40LDE3LjE2OSwxNy4xNjksMCwwLDEsNS44LDMuOGwtMy4yLDRhMTQuMzE2LDE0LjMxNiwwLDAsMC00LjItMy4xLDExLjAzMiwxMS4wMzIsMCwwLDAtNS0xLjEsMTEuMzg4LDExLjM4OCwwLDAsMC04LjQsMy40LDEwLjk0NSwxMC45NDUsMCwwLDAtMy40LDguMiwxMS4xNjUsMTEuMTY1LDAsMCwwLDMuNCw4LjMsMTEuNzg5LDExLjc4OSwwLDAsMCw4LjQsMy40LDEyLjk3MSwxMi45NzEsMCwwLDAsOS4yLTMuOWwzLjMsMy43YTE5Ljg1NiwxOS44NTYsMCwwLDEtNS45LDQsMTYuNzI2LDE2LjcyNiwwLDAsMS02LjgsMS41LDE2LjksMTYuOSwwLDAsMS0xMi4yLTQuOCwxNS45MTgsMTUuOTE4LDAsMCwxLTQuOS0xMS45LDE1Ljc4NywxNS43ODcsMCwwLDEsNS0xMS44QTE1LjUxOSwxNS41MTksMCwwLDEtMjk3LjUtMjMxLjdaIiBmaWxsPSIjZmZmIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyBpZD0iR3JvdXBfMzYiIGRhdGEtbmFtZT0iR3JvdXAgMzYiPgogICAgICA8ZyBpZD0iR3JvdXBfMzUiIGRhdGEtbmFtZT0iR3JvdXAgMzUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc0Ny42NTggNDU1Ljc0NSkiPgogICAgICAgIDxnIGlkPSJHcm91cF8zNCIgZGF0YS1uYW1lPSJHcm91cCAzNCI+CiAgICAgICAgICA8cGF0aCBpZD0iUGF0aF8xMiIgZGF0YS1uYW1lPSJQYXRoIDEyIiBkPSJNLTI4My42LTIzMS44YTE5LjkzOCwxOS45MzgsMCwwLDEsMTEuNSwzLjRsLTIuMyw0LjlhMTkuMzE4LDE5LjMxOCwwLDAsMC05LjctMy4xLDcuMDMsNy4wMywwLDAsMC0zLjkuOSwyLjY1OSwyLjY1OSwwLDAsMC0xLjQsMi41LDMuNTQ1LDMuNTQ1LDAsMCwwLDEuMywyLjgsOC42MTYsOC42MTYsMCwwLDAsMy4zLDEuN2MxLjMuNCwyLjguOCw0LjMsMS40YTI3LjcxNywyNy43MTcsMCwwLDEsNC4zLDEuOCw4LjI4Nyw4LjI4NywwLDAsMSwzLjMsMi45LDguMSw4LjEsMCwwLDEsMS4zLDQuNyw4LjE3OCw4LjE3OCwwLDAsMS0zLjUsNi45LDE0Ljc4MSwxNC43ODEsMCwwLDEtOSwyLjYsMjAuMTU3LDIwLjE1NywwLDAsMS03LjMtMS40LDIwLjcsMjAuNywwLDAsMS02LjItMy44bDIuNC00LjhhMjEuNzQsMjEuNzQsMCwwLDAsNS41LDMuNiwxNS4zNTcsMTUuMzU3LDAsMCwwLDUuNywxLjIsOC4wNzEsOC4wNzEsMCwwLDAsNC41LTEuMSwzLjI2LDMuMjYsMCwwLDAsMS42LTIuOSwzLjc0MiwzLjc0MiwwLDAsMC0xLjMtMi45LDguNjE2LDguNjE2LDAsMCwwLTMuMy0xLjdjLTEuMy0uNC0yLjgtLjgtNC4zLTEuM3MtMy0xLjEtNC4zLTEuNmE4LjAyMSw4LjAyMSwwLDAsMS0zLjMtMi44LDcuODg4LDcuODg4LDAsMCwxLTEuMy00LjcsOC4wMjEsOC4wMjEsMCwwLDEsMy4zLTYuN0ExNS4wMTksMTUuMDE5LDAsMCwxLTI4My42LTIzMS44WiIgZmlsbD0iI2ZmZiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" width="545" height="250" alt="Dr SW Clinics" decoding="sync">
-              </span>
-              <span class="lp-brand__divider" aria-hidden="true"></span>
-              <span class="lp-brand__context">Hair PRP package</span>
-            </div>
             <h1 id="v1-hero-title">3 PRP sessions. <em>£950 total.</em></h1>
             <p class="lp-hero__lead">PRP, derma microneedling and infrared are included in one three-session package.</p>
             <a class="lp-btn" href="#enquiry"><span>Ask about the £950 package</span></a>
             <p class="lp-hero__note">The clinic confirms suitability only after reviewing your medical history and treatment goals.</p>
-          </div>
-
-          <div class="lp-package-orbit" role="img" aria-label="The £950 package includes three sessions, PRP, derma microneedling and infrared">
-            <div class="lp-package-orbit__track" aria-hidden="true">
-              <span class="lp-orbit-tag lp-orbit-tag--one">3 sessions</span>
-              <span class="lp-orbit-tag lp-orbit-tag--two">PRP</span>
-              <span class="lp-orbit-tag lp-orbit-tag--three">Derma</span>
-              <span class="lp-orbit-tag lp-orbit-tag--four">Infrared</span>
-            </div>
-            <div class="lp-package-orbit__core">
-              <div>
-                <span class="lp-package-orbit__price">£950</span>
-                <span class="lp-package-orbit__label">Package total</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -1427,51 +1879,78 @@
       <section class="lp-section" aria-labelledby="v1-problem-title">
         <div class="lp-shell">
           <span class="lp-eyebrow">02 · Know the plan</span>
-          <div class="lp-split">
+          <div class="lp-split lp-split--media">
             <div>
               <h2 class="lp-heading" id="v1-problem-title">See what you are paying for before you enquire.</h2>
+              <div class="lp-plain-card">
+                <p class="lp-plain-card__quote">The course length, treatment elements and total price are clear from the start.</p>
+                <p>This page sets out what the package includes, what happens at the clinic, and what the clinic publishes about PRP. Suitability and the timing of your appointments are confirmed with the clinic.</p>
+              </div>
             </div>
-            <div class="lp-plain-card">
-              <p class="lp-plain-card__quote">The course length, treatment elements and total price are clear from the start.</p>
-              <p>This page puts both prices side by side: the clinic's published PRP course and the campaign package. Suitability and the timing of your appointments are confirmed with the clinic.</p>
-            </div>
+            <figure class="lp-figure">
+              <!-- IMAGE 2. Register entry IMG-13: a treatment room at Dr SW Clinics, from the clinic's patient journey page. -->
+              <img src="assets/v1/treatment-room.webp" width="800" height="561" alt="A treatment room at Dr SW Clinics with a treatment couch, a device on a trolley, supplies on the worktop and the clinic name on the wall" loading="lazy" decoding="async">
+              <figcaption>Treatment room, Dr SW Clinics</figcaption>
+            </figure>
           </div>
 
-          <div class="lp-compare" role="group" aria-label="Two ways to book a three-session course">
-            <article class="lp-compare__option">
-              <span class="lp-compare__label">PRP course on its own</span>
-              <span class="lp-compare__price">£1,500</span>
-              <span class="lp-compare__unit">Three sessions, one per month</span>
-              <p>The price published on the Dr SW Clinics PRP Hair page for a three-session PRP course, taken over three months.</p>
-            </article>
-            <article class="lp-compare__option lp-compare__option--package">
-              <span class="lp-compare__label">This campaign package</span>
-              <span class="lp-compare__price">£950</span>
-              <span class="lp-compare__unit">Three sessions, PRP with derma microneedling and infrared</span>
-              <p>The package price for enquiries through this page. Session timing is confirmed with the clinic.</p>
-            </article>
+          <div class="lp-includes" role="group" aria-label="What the £950 package includes">
+            <div class="lp-includes__head">
+              <span class="lp-eyebrow">What £950 includes</span>
+              <span class="lp-includes__note">Three sessions, one price</span>
+            </div>
+            <ul class="lp-includes__list">
+              <li><span class="lp-includes__label">Sessions <small>Booked with the clinic after a suitability review</small></span><span class="lp-includes__value">3</span></li>
+              <li><span class="lp-includes__label">PRP <small>Your own plasma, prepared and injected into the scalp</small></span><span class="lp-includes__value">Included</span></li>
+              <li><span class="lp-includes__label">Derma microneedling <small>A separate step in the package</small></span><span class="lp-includes__value">Included</span></li>
+              <li><span class="lp-includes__label">Infrared <small>The third step in the package</small></span><span class="lp-includes__value">Included</span></li>
+            </ul>
+            <div class="lp-includes__total">
+              <span>Package total <small>For all three sessions</small></span>
+              <strong>£950</strong>
+            </div>
           </div>
-          <p class="lp-compare__note">Both prices cover three sessions. The clinic confirms suitability before any treatment is booked.</p>
         </div>
       </section>
 
       <!-- 03. What it is -->
       <section class="lp-section lp-section--paper" aria-labelledby="v1-what-title">
         <div class="lp-shell">
-          <span class="lp-eyebrow">03 · What is included</span>
-          <h2 class="lp-heading" id="v1-what-title">One package, built around <em>three treatment elements.</em></h2>
-          <p class="lp-kicker">The package combines a three-session PRP course with derma microneedling and infrared. The clinic still needs to confirm whether it is suitable for you.</p>
+          <div class="lp-split lp-split--orbit">
+            <div>
+              <span class="lp-eyebrow">03 · What is included</span>
+              <h2 class="lp-heading" id="v1-what-title">One package, built around <em>three treatment elements.</em></h2>
+              <p class="lp-kicker">The package combines a three-session PRP course with derma microneedling and infrared. The clinic still needs to confirm whether it is suitable for you.</p>
+            </div>
+            <div class="lp-package-orbit" role="img" aria-label="The £950 package includes three sessions, PRP, derma microneedling and infrared">
+              <div class="lp-package-orbit__track" aria-hidden="true">
+                <span class="lp-orbit-tag lp-orbit-tag--one">3 sessions</span>
+                <span class="lp-orbit-tag lp-orbit-tag--two">PRP</span>
+                <span class="lp-orbit-tag lp-orbit-tag--three">Derma</span>
+                <span class="lp-orbit-tag lp-orbit-tag--four">Infrared</span>
+              </div>
+              <div class="lp-package-orbit__core">
+                <div>
+                  <span class="lp-package-orbit__price">£950</span>
+                  <span class="lp-package-orbit__label">Package total</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="lp-card-grid">
-            <article class="lp-treatment-card" data-step="01">
+            <article class="lp-treatment-card lp-treatment-card--prp" data-step="01">
+              <img class="lp-treatment-card__media" src="assets/v1/card-prp.webp" width="1000" height="667" alt="" loading="lazy" decoding="async">
               <h3>PRP</h3>
               <p>A small blood sample is taken. The platelet-rich plasma is separated in a centrifuge, then injected into the scalp.</p>
             </article>
-            <article class="lp-treatment-card" data-step="02">
+            <article class="lp-treatment-card lp-treatment-card--needling" data-step="02">
+              <img class="lp-treatment-card__media" src="assets/v1/card-microneedling.webp" width="730" height="716" alt="" loading="lazy" decoding="async">
               <h3>Derma microneedling</h3>
               <p>Derma microneedling is included as a separate step alongside PRP in this campaign package.</p>
             </article>
-            <article class="lp-treatment-card" data-step="03">
+            <article class="lp-treatment-card lp-treatment-card--infrared" data-step="03">
+              <img class="lp-treatment-card__media" src="assets/v1/card-infrared.webp" width="424" height="700" alt="" loading="lazy" decoding="async">
               <h3>Infrared</h3>
               <p>Infrared is the third treatment element included in this campaign package.</p>
             </article>
@@ -1490,36 +1969,45 @@
       <!-- 04. How it works -->
       <section class="lp-section" aria-labelledby="v1-process-title">
         <div class="lp-shell">
-          <span class="lp-eyebrow">04 · How it works</span>
-          <h2 class="lp-heading" id="v1-process-title">What happens after you send the form.</h2>
-          <p class="lp-kicker">Treatment does not begin from an advert. The clinic reviews your medical history and discusses your goals before confirming whether PRP is suitable.</p>
+          <div class="lp-split lp-split--steps">
+            <figure class="lp-figure lp-figure--cover">
+              <!-- IMAGE 3. Register entry IMG-14: the clinic's front door at 77 Harley Street, from the patient journey page. -->
+              <img src="assets/v1/harley-street-door.webp" width="1024" height="681" alt="The front door of 77 Harley Street, with black railings and white stone steps" loading="lazy" decoding="async">
+              <figcaption>77 Harley Street, London</figcaption>
+            </figure>
+            <div>
+              <span class="lp-eyebrow">04 · How it works</span>
+              <h2 class="lp-heading" id="v1-process-title">What happens after you send the form.</h2>
+              <p class="lp-kicker">Treatment does not begin from an advert. The clinic reviews your medical history and discusses your goals before confirming whether PRP is suitable.</p>
 
-          <ol class="lp-steps">
-            <li class="lp-step">
-              <div>
-                <h3>Send an enquiry</h3>
-                <p>Share your contact details and the one thing you want to discuss.</p>
-              </div>
-            </li>
-            <li class="lp-step">
-              <div>
-                <h3>Discuss suitability</h3>
-                <p>The clinic reviews your medical history and talks through your treatment goals.</p>
-              </div>
-            </li>
-            <li class="lp-step">
-              <div>
-                <h3>Confirm the plan</h3>
-                <p>If the package is suitable, the clinic confirms session timing and what to expect.</p>
-              </div>
-            </li>
-            <li class="lp-step">
-              <div>
-                <h3>Complete the course</h3>
-                <p>The package covers three sessions. Any visible change is gradual and varies by person.</p>
-              </div>
-            </li>
-          </ol>
+              <ol class="lp-steps">
+                <li class="lp-step">
+                  <div>
+                    <h3>Send an enquiry</h3>
+                    <p>Share your contact details and the one thing you want to discuss.</p>
+                  </div>
+                </li>
+                <li class="lp-step">
+                  <div>
+                    <h3>Discuss suitability</h3>
+                    <p>The clinic reviews your medical history and talks through your treatment goals.</p>
+                  </div>
+                </li>
+                <li class="lp-step">
+                  <div>
+                    <h3>Confirm the plan</h3>
+                    <p>If the package is suitable, the clinic confirms session timing and what to expect.</p>
+                  </div>
+                </li>
+                <li class="lp-step">
+                  <div>
+                    <h3>Complete the course</h3>
+                    <p>The package covers three sessions. Any visible change is gradual and varies by person.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1549,6 +2037,49 @@
             </article>
           </div>
           <p class="lp-proof-note">The combined appointment includes extra treatment steps, so its total duration and aftercare may differ. Results vary. The clinic says future maintenance may be recommended.</p>
+
+          <div class="lp-ba" role="group" aria-labelledby="v1-ba-title">
+            <div class="lp-ba__head">
+              <h3 id="v1-ba-title">Before and after, as published by the clinic</h3>
+              <p>Two Hair PRP results from the Dr SW Clinics PRP Hair page, in the clinic's original order and framing, with no retouching. They show PRP on its own, not the combined package. Results vary from person to person.</p>
+            </div>
+            <div class="lp-ba__grid">
+              <!-- Register entry BA-01. Files are created by tmp/prepare-prp-proof-images.py. -->
+              <figure class="lp-ba__pair">
+                <div class="lp-ba__images">
+                  <div class="lp-ba__shot">
+                    <span class="lp-ba__tag">Before</span>
+                    <img src="assets/v1/prp-before-1.webp" width="936" height="702" alt="Before: side view of a person's scalp above the ear, as published by Dr SW Clinics" loading="lazy" decoding="async">
+                  </div>
+                  <div class="lp-ba__shot">
+                    <span class="lp-ba__tag">After</span>
+                    <img src="assets/v1/prp-after-1.webp" width="936" height="748" alt="After: side view of the same person's scalp above the ear, as published by Dr SW Clinics" loading="lazy" decoding="async">
+                  </div>
+                </div>
+                <figcaption>Hair PRP, published by Dr SW Clinics. Results vary.</figcaption>
+              </figure>
+              <!-- Register entry BA-02. -->
+              <figure class="lp-ba__pair">
+                <div class="lp-ba__images">
+                  <div class="lp-ba__shot">
+                    <span class="lp-ba__tag">Before</span>
+                    <img src="assets/v1/prp-before-2.webp" width="936" height="702" alt="Before: side view of a person's scalp above the ear, as published by Dr SW Clinics" loading="lazy" decoding="async">
+                  </div>
+                  <div class="lp-ba__shot">
+                    <span class="lp-ba__tag">After</span>
+                    <img src="assets/v1/prp-after-2.webp" width="936" height="702" alt="After: side view of the same person's scalp above the ear, as published by Dr SW Clinics" loading="lazy" decoding="async">
+                  </div>
+                </div>
+                <figcaption>Hair PRP, published by Dr SW Clinics. Results vary.</figcaption>
+              </figure>
+            </div>
+            <!--
+              TESTIMONIAL SLOT, left empty on purpose.
+              No genuine Hair PRP testimonial exists on drswclinics.com or on the clinic's official YouTube channel (see the YouTube register in CLAUDE-CODE-HANDOFF.md).
+              The clinic's reviews page loads Google reviews through a widget that this page cannot reuse.
+              TODO(ALLEN): supply a consented Hair PRP testimonial (exact wording, how the patient wishes to be named, treatment confirmed) before anything is added here. Never write one.
+            -->
+          </div>
 
           <aside class="lp-cta-panel" aria-label="Hair PRP consultation enquiry">
             <div>
@@ -1586,7 +2117,7 @@
             <details class="lp-faq">
               <summary>What does the £950 package include?</summary>
               <div class="lp-faq__answer">
-                <p>It includes three sessions and combines PRP, derma microneedling and infrared. £950 is the total campaign package price. The clinic's published price for a three-session PRP course on its own is £1,500, taken as one session per month.</p>
+                <p>It includes three sessions and combines PRP, derma microneedling and infrared. £950 is the total package price.</p>
               </div>
             </details>
             <details class="lp-faq">
@@ -1640,7 +2171,6 @@
 
             <ul class="lp-form-points">
               <li>The package includes PRP, derma microneedling and infrared.</li>
-              <li>The clinic's published price for a PRP-only course of three sessions is £1,500.</li>
               <li>Suitability is confirmed after a medical history review.</li>
               <li>Sending an enquiry does not commit you to treatment.</li>
             </ul>
@@ -1651,8 +2181,8 @@
             <p class="lp-form-card__intro">The form asks for four details.</p>
 
             <!--
-              GHL setup: Add the live GoHighLevel form endpoint to the action attribute.
-              GHL setup: Configure successful submissions to redirect to ./hair-prp-thankyou.html.
+              TODO(GHL): Add the live GoHighLevel form endpoint to the action attribute.
+              TODO(GHL): Configure successful submissions to redirect to ./v1-thankyou.html.
               Do not launch until the endpoint, lead destination and redirect have been tested with a real submission.
             -->
             <form method="post">
@@ -1689,7 +2219,7 @@
         </div>
       </section>
 
-      <!-- 09. Thank-you state is the separate hair-prp-thankyou.html redirect page. -->
+      <!-- 09. Thank-you state is the separate v1-thankyou.html redirect page. -->
     </main>
 
     <footer class="lp-footer">
