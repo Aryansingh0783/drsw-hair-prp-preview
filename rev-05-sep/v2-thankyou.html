@@ -1935,6 +1935,50 @@
         font-size: 0.78rem;
       }
     }
+
+    /* Before and after, sized to be compared. Two pairs side by side put each scalp at about
+       270px on a desktop, which is not enough to see what the photographs are showing. One pair
+       per row puts each shot at about 570px. The point of the block is the comparison. */
+    .lp .lp-ba__shot img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .lp .lp-ba__pair figcaption {
+      color: rgba(229, 222, 210, 0.82);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 48rem) {
+      .lp .lp-ba {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* No crop on the patient photographs. `object-fit: cover` inside a forced 4/3 box was
+       cutting the after image of the first pair, which is 936x748 rather than 936x702. Altering
+       a before-and-after in any way, including a crop, is out. They render at their own aspect
+       and the pair aligns to the top, so a difference in height is visible rather than hidden. */
+    .lp .lp-ba__images {
+      align-items: start;
+    }
+
+    .lp .lp-ba__shot img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      object-fit: fill;
+    }
+
+    /* .lp-split only became a grid at 48rem, so on a phone its two halves stacked with no gap
+       and the suitability heading sat directly on its own body text. Grid at every width; the
+       desktop rule still supplies the columns. */
+    .lp .lp-split {
+      display: grid;
+      gap: 1.5rem;
+    }
   </style>
 </head>
 <body>

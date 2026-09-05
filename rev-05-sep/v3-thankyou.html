@@ -1201,6 +1201,19 @@
         font-size: 0.76rem;
       }
     }
+
+    /* No crop on the patient photographs, as on V2. The forced 4/3 box with `object-fit: cover`
+       was cutting the after image of the first pair, which is 936x748 rather than 936x702. */
+    .lp .lp-ba__images {
+      align-items: start;
+    }
+
+    .lp .lp-ba__shot img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      object-fit: fill;
+    }
   </style>
 </head>
 <body>
